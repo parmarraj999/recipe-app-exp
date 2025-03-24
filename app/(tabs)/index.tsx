@@ -50,7 +50,7 @@ const Home = () => {
                 <View style={{width:'100%',alignItems:"flex-start",paddingHorizontal:15}} >
                     <Text style={{fontSize:18,fontWeight:600}}>Popular Recipes</Text>
                 </View>
-                {/* <Popular /> */}
+                <Popular />
                 <Pressable onPress={()=>router.push('/123')}>
                     <Text>Go to Details</Text>
                 </Pressable>

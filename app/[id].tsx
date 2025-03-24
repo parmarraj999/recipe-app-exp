@@ -380,6 +380,8 @@ const DetailPage = () => {
     const router = useRouter();
 
     const [data, setData] = useState<Product | null>(null);
+    const [summary,setSummary] = useState<String>();
+    const [steps,setSteps] = useState<any>()
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<String>();
 
@@ -391,9 +393,20 @@ const DetailPage = () => {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           const data: Product = await response.json();
-          // setData(json.results);
-          // console.log(json.results)
           setData(data);
+          try {
+            const response = await fetch(`https://api.spoonacular.com/recipes/${id}/summary?apiKey=7cb3d33c08a64d6e9ed4b53ce1041581`);
+            const summaryData = await response.json();
+            // console.log(summaryData.summary)
+            setSummary(summaryData.summary.replace(/<[^>]+>/g, ''));
+
+            const response2 = await fetch(`https://api.spoonacular.com/recipes/analyzeInstructions?apiKey=7cb3d33c08a64d6e9ed4b53ce1041581`)
+            const stepData = await response2.json();
+            console.log(stepData.parsedInstructions.steps)
+
+          } catch (error) {
+            
+          }
         } catch (error) {
           setError("error");
         } finally {
@@ -407,7 +420,7 @@ const DetailPage = () => {
     return (
         <ScrollView>
             {
-                data ? (
+                data && summary ? (
                     <View style={style.container} >
                         <View style={style.header} >
                             <BackButton />
@@ -415,6 +428,8 @@ const DetailPage = () => {
                         </View>
                         <Text style={{ fontSize: 24, fontWeight: 600, marginTop: 20 }}>{data.title}</Text>
                         <Image source={{ uri: data.image }} style={style.image} />
+                        <Text style={{fontSize:22,fontWeight:600,marginTop:10}}>Recipe Summary</Text>
+                        <Text style={{fontSize:16,fontWeight:500,color:"rgba(0,0,0,0.5)"}} >{summary}</Text>
                         <View style={style.recipeDetail} >
                             <View style={{ alignItems: 'center' }}>
                                 <Text style={style.prepText}>Ready In</Text>
@@ -447,6 +462,7 @@ const DetailPage = () => {
                                 }
                             </View>
                         </View>
+                        
                     </View>
                 )
                     : <Text>Loading</Text>

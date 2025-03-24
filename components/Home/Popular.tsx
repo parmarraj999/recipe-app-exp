@@ -19,16 +19,17 @@ const Popular = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=7cb3d33c08a64d6e9ed4b53ce1041581&query=pasta&number=20');
+                // const response = await fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=7cb3d33c08a64d6e9ed4b53ce1041581&query=pasta&number=20');
+                const response = await fetch('https://api.spoonacular.com/recipes/random?apiKey=7cb3d33c08a64d6e9ed4b53ce1041581&number=20');
                 // const response = await fetch('https://fakestoreapi.com/products');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const json = await response.json();
-                setData(json.results);
-                console.log(json.results)
+                setData(json.recipes);
+                console.log(json.recipes)
                 // setData(json);
-                // console.log(json)
+                console.log(json)
             } catch (error) {
                 setError("error");
             } finally {
