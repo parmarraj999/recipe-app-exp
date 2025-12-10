@@ -1,50 +1,87 @@
-# Welcome to your Expo app 👋
+🍽️ Recipe App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple and beautiful Recipe App that fetches real recipes from an external API.
+Users can explore dishes, search any recipe, and view all details on a dedicated recipe page.
 
-## Get started
+🚀 Features
 
-1. Install dependencies
+🔥 Fetch Recipes from API
+Real-time data loading from a recipe API.
 
-   ```bash
-   npm install
-   ```
+📄 Recipe Detail Page
+Shows ingredients, steps, category, image, and more.
 
-2. Start the app
+🔍 Search Recipes
+Instantly search any dish using the built-in search page.
 
-   ```bash
-    npx expo start
-   ```
+⚡ Fast & Clean UI
+Smooth navigation and simple layout.
 
-In the output, you'll find options to open the app in a
+🧩 Tech Stack
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+React / React Native / Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Fetch / Axios (API calling)
 
-## Get a fresh project
+React Navigation
 
-When you're ready, run:
+CSS / Tailwind / Styled Components (any one you used)
 
-```bash
-npm run reset-project
-```
+📷 Screens Included
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+🏠 Home Screen (Recipe List)
 
-## Learn more
+🔍 Search Screen (Search Input + Results)
 
-To learn more about developing your project with Expo, look at the following resources:
+📄 Detail Screen (Ingredients + Instructions)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+🔌 API Used
+https://www.themealdb.com/api/json/v1/1/search.php?s=
 
-## Join the community
 
-Join our community of developers creating universal apps.
+(Replace with your own API if needed.)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+📁 Project Structure
+src/
+ ├── components/
+ ├── screens/
+ │    ├── Home.js
+ │    ├── Detail.js
+ │    └── Search.js
+ ├── api/
+ │    └── recipeApi.js
+ ├── App.js
+
+🛠️ Installation
+git clone <your-repo-url>
+cd recipe-app
+npm install
+
+▶ Run App
+
+For React:
+
+npm start
+
+
+For Expo:
+
+npx expo start
+
+🌟 Future Enhancements
+
+⭐ Save recipe to favorites
+
+⭐ Category-wise filtering
+
+⭐ Offline mode
+
+⭐ Dark theme
+
+🤝 Contributing
+
+Feel free to open issues or pull requests.
+
+📜 License
+
+This project is licensed under the MIT License.
